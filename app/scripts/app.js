@@ -1,10 +1,20 @@
 angular
 .module('twentyfourtyeightApp', ['Game','Grid', 'Keyboard'])
-.controller('GameController', function(GameManager){
+.controller('GameController', function(GameManager, KeyboardService){
     this.game = GameManager;
 
     this.newGame = function() {
+      KeyboardService.init();
       this.game.newGame();
+      this.startGame();
+    };
+
+    this.startGame = function() {
+      var self = this;
+      KeyboardService.on(function(key) {
+        // bind move handler
+        console.log(key);
+      });
     };
 
     this.newGame();
