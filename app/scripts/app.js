@@ -12,8 +12,7 @@ angular
     this.startGame = function() {
       var self = this;
       KeyboardService.on(function(key) {
-        // bind move handler
-        console.log(key);
+        self.game.move(key);
       });
     };
 
